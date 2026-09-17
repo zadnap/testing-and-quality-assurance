@@ -1,0 +1,24 @@
+{
+  "name": "testing-and-quality-assurance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zadnap/testing-and-quality-assurance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/zadnap/testing-and-quality-assurance/issues"
+  },
+  "homepage": "https://github.com/zadnap/testing-and-quality-assurance#readme",
+  "devDependencies": {
+    "jest": "^30.5.1"
+  }
+}
