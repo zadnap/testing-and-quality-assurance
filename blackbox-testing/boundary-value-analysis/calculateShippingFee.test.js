@@ -23,6 +23,8 @@ describe("calculateShippingFee (BVA)", () => {
     ["TC_14", 1, 10.0, 50_000],
     ["TC_15", 499_999, 10.0, 50_000],
     ["TC_16", 500_001, 10.0, 30_000],
+
+    ["TC_17", 499_999, 5.0, 30_000],
   ])(
     "%s: orderValue=%s, weight=%s → %s",
     (tcId, orderValue, weight, expected) => {
