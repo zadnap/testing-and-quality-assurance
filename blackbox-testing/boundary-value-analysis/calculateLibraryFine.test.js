@@ -1,6 +1,6 @@
 import calculateLibraryFine from "../calculateLibraryFine.js";
 
-describe("calculateLibraryFine", () => {
+describe("calculateLibraryFine (BVA)", () => {
   test.each([
     // TC_01
     {
