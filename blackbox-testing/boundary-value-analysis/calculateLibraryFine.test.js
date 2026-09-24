@@ -1,4 +1,4 @@
-import calculateLibraryFine from "./calculateLibraryFine.js";
+import calculateLibraryFine from "../calculateLibraryFine.js";
 
 describe("calculateLibraryFine", () => {
   test.each([
