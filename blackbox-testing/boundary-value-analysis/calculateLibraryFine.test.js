@@ -161,6 +161,26 @@ describe("calculateLibraryFine", () => {
       memberType: "PREMIUM",
       expected: 48_000,
     },
+
+    // TC_17
+    {
+      id: "TC_17",
+      lateDays: 4,
+      bookValue: 2_000_000,
+      bookType: "RARE",
+      memberType: "STANDARD",
+      expected: 180_000,
+    },
+
+    // TC_18
+    {
+      id: "TC_18",
+      lateDays: 3,
+      bookValue: 2_000_000,
+      bookType: "RARE",
+      memberType: "STANDARD",
+      expected: 60_000,
+    },
   ])("$id", ({ lateDays, bookValue, bookType, memberType, expected }) => {
     expect(
       calculateLibraryFine(bookType, lateDays, memberType, bookValue),
