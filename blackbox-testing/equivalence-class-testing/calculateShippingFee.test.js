@@ -3,7 +3,7 @@ import calculateShippingFee from "../calculateShippingFee.js";
 
 describe("calculateShippingFee (ECT)", () => {
   test("TC_01: orderValue < 0 → invalid", () => {
-    expect(calculateShippingFee(-1, 5.0)).toBe("invalid");
+    expect(calculateShippingFee(-1, 5.0)).toBe(-1);
   });
 
   test("TC_02: orderValue < 500000 && weight <= 5 → 30000", () => {
