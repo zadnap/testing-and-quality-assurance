@@ -1,4 +1,4 @@
-import calculateLibraryFineLevel from "../calculateLibraryFineLevel";
+import calculateLibraryFineLevel from "../../calculateLibraryFineLevel";
 
 describe("calculateLibraryFineLevel (BVA)", () => {
   test("TC_01: RARE, 20, 5, 5 -> SEVERE", () => {

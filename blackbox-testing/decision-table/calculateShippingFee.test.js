@@ -1,4 +1,4 @@
-import calculateShippingFee from "../calculateShippingFee";
+import calculateShippingFee from "../../calculateShippingFee";
 
 describe("calculateShippingFee - Decision Table", () => {
   test("TC_01: orderValue < 0", () => {

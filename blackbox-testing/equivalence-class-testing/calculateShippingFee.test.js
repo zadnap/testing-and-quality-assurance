@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import calculateShippingFee from "../calculateShippingFee.js";
+import calculateShippingFee from "../../calculateShippingFee.js";
 
 describe("calculateShippingFee (ECT)", () => {
   test("TC_01: orderValue < 0 → invalid", () => {

@@ -1,4 +1,4 @@
-import calculateLibraryFineLevel from "../calculateLibraryFineLevel.js";
+import calculateLibraryFineLevel from "../../calculateLibraryFineLevel";
 
 describe("calculateLibraryFineLevel (DT)", () => {
   test("TC_01 - INVALID bookType", () => {

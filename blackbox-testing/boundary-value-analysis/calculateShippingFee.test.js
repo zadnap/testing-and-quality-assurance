@@ -1,4 +1,4 @@
-import calculateShippingFee from "../calculateShippingFee.js";
+import calculateShippingFee from "../../calculateShippingFee.js";
 
 describe("calculateShippingFee (BVA)", () => {
   test.each([
