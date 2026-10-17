@@ -6,110 +6,66 @@ const calculateLibraryFineLevel = (
 ) => {
   const validBookTypes = ["NORMAL", "REFERENCE", "RARE"];
 
-  // M1: lateDays < 0 -> lateDays <= 0
-  // M2: memberYears < 0 -> memberYears <= 0
-  // M3: violationCount < 0 -> violationCount <= 0
   if (
+    // M1: !validBookTypes.includes(bookType) -> validBookTypes.includes(bookType)
+    // M2: lateDays < 0 -> lateDays <= 0
+    // M3: memberYears < 0 -> memberYears <= 0
+    // M4: violationCount < 0 -> violationCount <= 0
     !validBookTypes.includes(bookType) ||
     lateDays < 0 ||
     memberYears < 0 ||
     violationCount < 0
   ) {
-    // M34: return "INVALID" -> return "SEVERE"
+    // M14: return "INVALID" -> return "NONE"
     return "INVALID";
   }
 
-  // M4: lateDays === 0 -> lateDays !== 0
+  // M5: lateDays === 0 -> lateDays !== 0
   if (lateDays === 0) {
-    // M35: return "NONE" -> return "LOW"
+    // M15: return "NONE" -> return "INVALID"
     return "NONE";
   }
 
-  if (
-    bookType === "NORMAL" &&
-    // M5: lateDays > 0 -> lateDays >= 0
-    lateDays > 0 &&
-    // M6: lateDays <= 3 -> lateDays < 3
-    lateDays <= 3 &&
-    // M7: memberYears >= 1 -> memberYears > 1
-    memberYears >= 1 &&
-    // M8: violationCount >= 0 -> violationCount > 0
-    violationCount >= 0 &&
-    // M9: violationCount <= 2 -> violationCount < 2
-    violationCount <= 2
-  ) {
-    // M36: return "LOW" -> return "MEDIUM"
-    return "LOW";
+  // M6: memberYears < 1 -> memberYears <= 1
+  // M7: violationCount > 2 -> violationCount >= 2
+  if (memberYears < 1 || violationCount > 2) {
+    // M16: return "SEVERE" -> return "HIGH"
+    return "SEVERE";
   }
 
-  if (
-    (bookType === "NORMAL" &&
-      // M10: lateDays > 3 -> lateDays >= 3
-      lateDays > 3 &&
-      // M11: lateDays <= 7 -> lateDays < 7
-      lateDays <= 7 &&
-      // M12: memberYears >= 1 -> memberYears > 1
-      memberYears >= 1 &&
-      // M13: violationCount >= 0 -> violationCount > 0
-      violationCount >= 0 &&
-      // M14: violationCount <= 2 -> violationCount < 2
-      violationCount <= 2) ||
-    (bookType === "REFERENCE" &&
-      // M15: lateDays > 0 -> lateDays >= 0
-      lateDays > 0 &&
-      // M16: lateDays <= 3 -> lateDays < 3
-      lateDays <= 3 &&
-      // M17: memberYears >= 1 -> memberYears > 1
-      memberYears >= 1 &&
-      // M18: violationCount >= 0 -> violationCount > 0
-      violationCount >= 0 &&
-      // M19: violationCount <= 2 -> violationCount < 2
-      violationCount <= 2)
-  ) {
-    // M37: return "MEDIUM" -> return "LOW"
-    return "MEDIUM";
+  if (bookType === "NORMAL") {
+    // M8: lateDays <= 3 -> lateDays < 3
+    if (lateDays <= 3) {
+      // M17: return "LOW" -> return "SEVERE"
+      return "LOW";
+      // M9: lateDays <= 7 -> lateDays < 7
+    } else if (lateDays <= 7) {
+      // M18: return "MEDIUM" -> return "LOW"
+      return "MEDIUM";
+      // M10: lateDays <= 14 -> lateDays < 14
+    } else if (lateDays <= 14) {
+      // M19: return "HIGH" -> return "LOW"
+      return "HIGH";
+    }
+  } else if (bookType === "REFERENCE") {
+    // M11: lateDays <= 3 -> lateDays < 3
+    if (lateDays <= 3) {
+      // M20: return "MEDIUM" -> return "SEVERE"
+      return "MEDIUM";
+      // M12: lateDays <= 7 -> lateDays < 7
+    } else if (lateDays <= 7) {
+      // M21: return "HIGH" -> return "NONE"
+      return "HIGH";
+    }
+  } else if (bookType === "RARE") {
+    // M13: lateDays <= 3 -> lateDays < 3
+    if (lateDays <= 3) {
+      // M22: return "HIGH" -> return "NONE"
+      return "HIGH";
+    }
   }
 
-  if (
-    (bookType === "NORMAL" &&
-      // M20: lateDays > 7 -> lateDays >= 7
-      lateDays > 7 &&
-      // M21: lateDays <= 14 -> lateDays < 14
-      lateDays <= 14 &&
-      // M22: memberYears >= 1 -> memberYears > 1
-      memberYears >= 1 &&
-      // M23: violationCount >= 0 -> violationCount > 0
-      violationCount >= 0 &&
-      // M24: violationCount <= 2 -> violationCount < 2
-      violationCount <= 2) ||
-    (bookType === "REFERENCE" &&
-      // M25: lateDays > 3 -> lateDays >= 3
-      lateDays > 3 &&
-      // M26: lateDays <= 7 -> lateDays < 7
-      lateDays <= 7 &&
-      // M27: memberYears >= 1 -> memberYears > 1
-      memberYears >= 1 &&
-      // M28: violationCount >= 0 -> violationCount > 0
-      violationCount >= 0 &&
-      // M29: violationCount <= 2 -> violationCount < 2
-      violationCount <= 2) ||
-    (bookType === "RARE" &&
-      // M30: lateDays > 0 -> lateDays >= 0
-      lateDays > 0 &&
-      // M31: lateDays <= 3 -> lateDays < 3
-      lateDays <= 3 &&
-      // M32: memberYears >= 1 -> memberYears > 1
-      memberYears >= 1 &&
-      // M33: violationCount >= 0 -> violationCount > 0
-      violationCount >= 0 &&
-      // M34: violationCount <= 2 -> violationCount < 2
-      violationCount <= 2)
-  ) {
-    // M38: return "HIGH" -> return "MEDIUM"
-    return "HIGH";
-  }
-
-  // M39: return "SEVERE" -> return "HIGH"
+  // M23: return "SEVERE" -> return "LOW"
   return "SEVERE";
 };
 
