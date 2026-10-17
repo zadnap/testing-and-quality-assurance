@@ -57,12 +57,12 @@ const calculateLibraryFineLevel = (
       // M21: return "HIGH" -> return "NONE"
       return "HIGH";
     }
-  } else if (bookType === "RARE") {
-    // M13: lateDays <= 3 -> lateDays < 3
-    if (lateDays <= 3) {
-      // M22: return "HIGH" -> return "NONE"
-      return "HIGH";
-    }
+  }
+
+  // M13: lateDays <= 3 -> lateDays < 3
+  if (lateDays <= 3) {
+    // M22: return "HIGH" -> return "NONE"
+    return "HIGH";
   }
 
   // M23: return "SEVERE" -> return "LOW"
