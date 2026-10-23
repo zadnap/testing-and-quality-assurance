@@ -1,7 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
 import calculateShippingFee from "../../calculateShippingFee.js";
 
-describe("calculateShippingFee - Basis Path Testing", () => {
+describe("calculateShippingFee (CFT)", () => {
   test("TC_01: orderValue < 0", () => {
     const result = calculateShippingFee(-5, 5.0);
 

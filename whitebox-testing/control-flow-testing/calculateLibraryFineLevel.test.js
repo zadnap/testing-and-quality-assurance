@@ -1,6 +1,6 @@
 import calculateLibraryFineLevel from "../../calculateLibraryFineLevel.js";
 
-describe("calculateLibraryFineLevel", () => {
+describe("calculateLibraryFineLevel (CFT)", () => {
   test("TC_01: Invalid bookType", () => {
     expect(calculateLibraryFineLevel("INVALID", 5, 5, 5)).toBe("INVALID");
   });
