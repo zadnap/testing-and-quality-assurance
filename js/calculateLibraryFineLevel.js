@@ -1,7 +1,17 @@
-const calculateLibraryFineLevel = (bookType, lateDays, memberYears, violationCount) => {
+const calculateLibraryFineLevel = (
+  bookType,
+  lateDays,
+  memberYears,
+  violationCount,
+) => {
   const validBookTypes = ["NORMAL", "REFERENCE", "RARE"];
 
-  if (!validBookTypes.includes(bookType) || lateDays < 0 || memberYears < 0 || violationCount < 0) {
+  if (
+    !validBookTypes.includes(bookType) ||
+    lateDays < 0 ||
+    memberYears < 0 ||
+    violationCount < 0
+  ) {
     return "INVALID";
   }
 
