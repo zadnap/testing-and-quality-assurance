@@ -1,4 +1,4 @@
-package shippingFeeCalculator;
+package ai.shippingFeeCalculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,5 +1,5 @@
 
-package shippingFeeCalculator;
+package manual.shippingFeeCalculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
